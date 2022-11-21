@@ -2,6 +2,8 @@
 
 namespace App\Modules\User;
 
+use Faker\Guesser\Name;
+
 class User implements InterfaceUser
 {
     public function __construct(
@@ -43,7 +45,7 @@ class User implements InterfaceUser
     /**
      * @param string $username
      */
-    public function setUsername(string $username): void
+    public function name(string $username): void
     {
         $this->username = $username;
     }

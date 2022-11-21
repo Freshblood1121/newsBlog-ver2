@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\UsersRepository;
 
 use App\Excepetions\UserNotFoundException;
 use App\Modules\User\User;
