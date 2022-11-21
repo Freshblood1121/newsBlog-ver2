@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
         'name' => 'user/ver2',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'e3fdfeac621cc51bdeae181a99cfa5425319f6cd',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'faapz/pdo' => array(
+            'pretty_version' => 'v2.2.1',
+            'version' => '2.2.1.0',
+            'reference' => 'd1de9b42b3d11188886055d93a2d68cc2765fa10',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../faapz/pdo',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'fakerphp/faker' => array(
             'pretty_version' => 'v1.20.0',
             'version' => '1.20.0.0',
@@ -38,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'user/ver2' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'e3fdfeac621cc51bdeae181a99cfa5425319f6cd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
