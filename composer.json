@@ -12,7 +12,6 @@
         }
     ],
     "require": {
-        "fakerphp/faker": "^1.20",
-      "ext-pdo": "*"
+        "fakerphp/faker": "^1.20"
     }
 }
