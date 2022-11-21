@@ -8,6 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Faker\\' => array($vendorDir . '/fakerphp/faker/src/Faker'),
-    'FaaPz\\PDO\\' => array($vendorDir . '/faapz/pdo/src'),
     'App\\' => array($baseDir . '/src'),
 );

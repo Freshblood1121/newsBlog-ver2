@@ -18,7 +18,6 @@ class ComposerStaticInitda88f25ecef5fb77c293c56b6ca8a02a
         'F' => 
         array (
             'Faker\\' => 6,
-            'FaaPz\\PDO\\' => 10,
         ),
         'A' => 
         array (
@@ -34,10 +33,6 @@ class ComposerStaticInitda88f25ecef5fb77c293c56b6ca8a02a
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
-        ),
-        'FaaPz\\PDO\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/faapz/pdo/src',
         ),
         'App\\' => 
         array (
