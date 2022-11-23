@@ -4,11 +4,12 @@ namespace App\Modules\Comment;
 
 use App\Modules\Post\Post;
 use App\Modules\User\User;
+use App\UUID;
 
 class Comment implements InterfaceComment
 {
     public function __construct(
-        private int $id,
+        private UUID $uuid,
         private User $user,
         private Post $post,
         private string $text
@@ -20,20 +21,7 @@ class Comment implements InterfaceComment
         return $this->user . 'Пишет комментарий: ' . $this->text;
     }
 
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
+
 
     /**
      * @return User
@@ -81,5 +69,21 @@ class Comment implements InterfaceComment
     public function setText(string $text): void
     {
         $this->text = $text;
+    }
+
+    /**
+     * @return UUID
+     */
+    public function uuid(): UUID
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * @param UUID $uuid
+     */
+    public function setUuid(UUID $uuid): void
+    {
+        $this->uuid = $uuid;
     }
 }

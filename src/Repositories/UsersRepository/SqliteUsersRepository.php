@@ -15,12 +15,14 @@ class SqliteUsersRepository
     public function save(User $user): void
     {
         $statement = $this->connection->prepare(
-            'INSERT INTO users (first_name, last_name) VALUES (:first_name, :last_name)'
+            'INSERT INTO users (name_surname, email, uuid)
+                   VALUES (:first_name, :last_name, :uuid)'
         );
 
         $statement->execute([
             ':first_name' => $user->getUsername(),
-            ':last_name' => $user->getEmail()
+            ':last_name' => $user->getEmail(),
+            ':uuid' => $user->uuid()
         ]);
     }
 

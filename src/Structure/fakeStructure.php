@@ -3,6 +3,7 @@
 use App\Modules\Comment\Comment;
 use App\Modules\Post\Post;
 use App\Modules\User\User;
+use App\UUID;
 
 $faker = Faker\Factory::create('ru_RU');
 
@@ -10,25 +11,25 @@ $faker = Faker\Factory::create('ru_RU');
 $name = $faker->firstName("female") . " " . $faker->lastName("female");
 
 $user = new User(
-    $faker->randomDigitNotNull,
+    UUID::random(),
     $faker->freeEmail,
     $name
 );
 
 $post = new Post(
-    $faker->randomDigitNotNull,
+    UUID::random(),
     $user,
     $faker->realText(rand(50,100))
 );
 
 $comment = new Comment(
-    $faker->randomDigitNotNull,
+    UUID::random(),
     $user,
     $post,
     $faker->realText(rand(10,40))
 );
 
-$route = $argv[1] ?? null;
+$route = $argv[1]?? 'Please, try to request...';
 
 //Структура запросов(switch поменял на match)
 $result = match (strtolower($route))

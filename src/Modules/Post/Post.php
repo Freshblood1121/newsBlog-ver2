@@ -3,11 +3,12 @@
 namespace App\Modules\Post;
 
 use App\Modules\User\User;
+use App\UUID;
 
 class Post implements InterfacePost
 {
     public function __construct(
-        private int $id,
+        private UUID $uuid,
         private User $user,
         private string $text
     ) {
@@ -17,21 +18,7 @@ class Post implements InterfacePost
         return $this->user . 'Пишет пост: ' . $this->text;
     }
 
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
 
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
 
     /**
      * @return User
@@ -63,5 +50,21 @@ class Post implements InterfacePost
     public function setText(string $text): void
     {
         $this->text = $text;
+    }
+
+    /**
+     * @return UUID
+     */
+    public function uuid(): UUID
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * @param UUID $uuid
+     */
+    public function setUuid(UUID $uuid): void
+    {
+        $this->uuid = $uuid;
     }
 }
