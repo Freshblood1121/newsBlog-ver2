@@ -16,6 +16,9 @@ class UUID
         }
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public static function random(): self
     {
         return new self(uuid_create(UUID_TYPE_RANDOM));

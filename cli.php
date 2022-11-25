@@ -15,20 +15,35 @@ $faker = Faker\Factory::create('ru_RU');
 $usersRepository = new InMemoryUsersRepository();
 $usersRepository = new SqliteUsersRepository($connection);
 
-$usersRepository->save(
-    new User(
-        UUID::random(),
-    new Name(
-            $faker->firstName("female"),
-            $faker->lastName("female")
-        ), "petrovich@asf.wef")
-);
+//$usersRepository->save(
+//    new User(
+//        UUID::random(),
+//    new Name(
+//            $faker->firstName("female"),
+//            $faker->lastName("female")
+//        ), $faker->freeEmail)
+//);
+//
+//$usersRepository->save(
+//    new User(
+//        UUID::random(),
+//    new Name(
+//        $faker->firstName("female"),
+//        $faker->lastName("female")),
+//        $faker->freeEmail)
+//);
 
-$usersRepository->save(
-    new User(
-        UUID::random(),
-    new Name(
-        $faker->firstName("female"),
-        $faker->lastName("female")),
-        "petrovna@sdasf.wef")
-);
+try {
+//    $usersRepository->save(
+//    new User(
+//        UUID::random(),
+//        $faker->FreeEmail(),
+//        new Name(
+//            $faker->firstName("female"),
+//            $faker->lastName("female")
+//        )
+//    ));
+  echo $usersRepository->getByEmail("elvira.morozov@mail.rp");
+} catch (Exception $e){
+    echo $e->getMessage();
+}

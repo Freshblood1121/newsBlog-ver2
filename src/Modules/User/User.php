@@ -3,33 +3,34 @@
 namespace App\Modules\User;
 
 use App\UUID;
+use Faker\Guesser\Name;
 
 class User implements InterfaceUser
 {
     public function __construct(
         private UUID $uuid,
-        private string $username,
-        private string $email
+        private string $email,
+        private Name $username
     ) {
     }
 
     public function __toString(): string
     {
-        return "Пользователь $this->uuid" . PHP_EOL . "Почта: " . $this->username . PHP_EOL . "Логин: " . $this->email . PHP_EOL;
+        return "Пользователь $this->uuid" . PHP_EOL . "Почта: " . $this->email . PHP_EOL . "Логин: " . $this->username . PHP_EOL;
     }
 
     /**
-     * @return string
+     * @return Name
      */
-    public function getUsername(): string
+    public function getUsername(): Name
     {
         return $this->username;
     }
 
     /**
-     * @param string $username
+     * @param Name $username
      */
-    public function name(string $username): void
+    public function setUsername(Name $username): void
     {
         $this->username = $username;
     }
@@ -56,13 +57,5 @@ class User implements InterfaceUser
     public function uuid(): UUID
     {
         return $this->uuid;
-    }
-
-    /**
-     * @param UUID $uuid
-     */
-    public function setUuid(UUID $uuid): void
-    {
-        $this->uuid = $uuid;
     }
 }

@@ -4,6 +4,7 @@ use App\Modules\Comment\Comment;
 use App\Modules\Post\Post;
 use App\Modules\User\User;
 use App\UUID;
+use Faker\Guesser\Name;
 
 $faker = Faker\Factory::create('ru_RU');
 
@@ -13,7 +14,7 @@ $name = $faker->firstName("female") . " " . $faker->lastName("female");
 $user = new User(
     UUID::random(),
     $faker->freeEmail,
-    $name
+    new Name('Nikolay', 'Petrovi4')
 );
 
 $post = new Post(
@@ -38,6 +39,6 @@ $result = match (strtolower($route))
     "user" => $user,
     "post" => $post,
     "comment" => $comment,
-    default => 'Error try User, Post, Comment parametr'
+    default => 'Error try User, Post, Comment parametr' . PHP_EOL
 };
 echo $result;
