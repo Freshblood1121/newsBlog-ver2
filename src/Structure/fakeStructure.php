@@ -33,12 +33,12 @@ $comment = new Comment(
 $route = $argv[1]?? 'Please, try to request...';
 
 //Структура запросов(switch поменял на match)
-$result = match (strtolower($route))
-{
-    "name" => $name,
-    "user" => $user,
-    "post" => $post,
-    "comment" => $comment,
-    default => 'Error try User, Post, Comment parametr' . PHP_EOL
-};
-echo $result;
+//$result = match (strtolower($route))
+//{
+//    "name" => $name,
+//    "user" => $user,
+//    "post" => $post,
+//    "comment" => $comment,
+//    default => 'Error try User, Post, Comment parametr' . PHP_EOL
+//};
+//echo $result;
