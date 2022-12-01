@@ -6,6 +6,9 @@ use App\Excepetions\InvalidArgumentException;
 
 class UUID
 {
+    /**
+     * @throws InvalidArgumentException
+     */
     public function __construct(
         private string $uuidString
     ) {
@@ -15,7 +18,6 @@ class UUID
             );
         }
     }
-
     /**
      * @throws InvalidArgumentException
      */

@@ -6,12 +6,12 @@ use App\Modules\Post\Post;
 use App\Modules\User\User;
 use App\UUID;
 
-class Comment implements InterfaceComment
+class Comment
 {
     public function __construct(
         private UUID $uuid,
-        private User $user,
         private Post $post,
+        private User $user,
         private string $text
     ) {
     }
@@ -20,9 +20,6 @@ class Comment implements InterfaceComment
     {
         return $this->user . 'Пишет комментарий: ' . $this->text;
     }
-
-
-
     /**
      * @return User
      */

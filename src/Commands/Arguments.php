@@ -33,7 +33,6 @@ class Arguments
         }
         return new self($arguments);
     }
-
     /**
      * @throws ArgumentsException
      */

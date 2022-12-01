@@ -11,17 +11,12 @@ use PDO;
 use PDOStatement;
 class SqliteUsersRepository implements InterfaceUserInMemory
 {
-    public function __construct(
-        private PDO $connection
-    )
-    {
-    }
-
+    public function __construct(private PDO $connection){}
     public function save(User $user): void
     {
         $statement = $this->connection->prepare(
             'INSERT INTO users (uuid,email,first_name,last_name)
-                   VALUES (:uuid,:email, :first_name, :last_name)'
+                   VALUES (:uuid,:email,:first_name,:last_name)'
         );
         $statement->execute([
             ':uuid' => $user->uuid(),
@@ -39,12 +34,9 @@ class SqliteUsersRepository implements InterfaceUserInMemory
         $statement = $this->connection->prepare(
             'SELECT * FROM users WHERE uuid = :uuid'
         );
-        $statement->execute([
-            ':uuid' => (string)$uuid,
-        ]);
+        $statement->execute([':uuid' => (string)$uuid]);
         return $this->getEmail($statement, $uuid);
     }
-
     /**
      * @throws InvalidArgumentException
      * @throws UserNotFoundException
@@ -54,12 +46,9 @@ class SqliteUsersRepository implements InterfaceUserInMemory
         $statement = $this->connection->prepare(
             'SELECT * FROM users WHERE email = :email'
         );
-        $statement->execute([
-            ':email' => $email,
-        ]);
+        $statement->execute([':email' => $email]);
         return $this->getEmail($statement, $email);
     }
-
     /**
      * @throws InvalidArgumentException
      * @throws UserNotFoundException
@@ -72,10 +61,10 @@ class SqliteUsersRepository implements InterfaceUserInMemory
                 "Cannot find user: $username"
             );
         }
-            return new User(
-    new UUID($result['uuid']),
-    $result['email'],
-    new Name($result['first_name'], $result['last_name'])
-    );
+        return new User(
+            new UUID($result['uuid']),
+            $result['email'],
+            new Name($result['first_name'], $result['last_name'])
+        );
     }
 }

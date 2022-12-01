@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/sqlite.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Commands/Arguments.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Commands/CreateUserCommand.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Repositories/CommentRepository/CommentRepository.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Repositories/UsersRepository/SqliteUsersRepository.php" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1252" />
   </component>
 </project>

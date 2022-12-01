@@ -3,7 +3,11 @@
 //Файл подключения(контроллер)
 use App\Commands\Arguments;
 use App\Commands\CreateUserCommand;
+use App\Modules\Comment\Comment;
+use App\Modules\Post\Post;
 use App\Modules\User\User;
+use App\Repositories\CommentRepository\CommentRepository;
+use App\Repositories\PostRepository\PostRepository;
 use App\Repositories\UsersRepository\InMemoryUsersRepository;
 use App\Repositories\UsersRepository\SqliteUsersRepository;
 use App\UUID;
@@ -15,13 +19,19 @@ require __DIR__ . '/src/Structure/fakeStructure.php'; //Точка записи 
 $faker = Faker\Factory::create('ru_RU'); //Faker
 
 $usersRepository = new InMemoryUsersRepository(); //Локальный репозиторий
-$usersRepository = new SqliteUsersRepository($connection);// База данных SQLite
+$usersRepository = new SqliteUsersRepository($connection);// Пользователи
+$postRepository = new PostRepository($connection); //Посты
+$commentRepository = new CommentRepository($connection); //Комментарии
 $command = new CreateUserCommand($usersRepository); // Консоль
 
 try {
-    //Записать в таблицу новые данные через консоль
-    $command->handle(Arguments::fromArgv($argv));
-// Точка входа
+
+} catch (Exception $e){
+    echo $e->getMessage();
+}
+
+//Записать в таблицу новые данные через консоль
+//$command->handle(Arguments::fromArgv($argv));
 // Записать в таблицу новые данные
 //    $usersRepository->save(
 //    new User(
@@ -33,7 +43,6 @@ try {
 //        )
 //    ));
 // Получить значение одного значения из базы данных
-// echo $usersRepository->getByEmail("elvira.morozov@mail.rp");
-} catch (Exception $e){
-    echo $e->getMessage();
-}
+//$user = $usersRepository->getByEmail("elvira.morozov@mail.rp");
+//$post = $postRepository->get(new UUID('c1a8beb5-eee6-4288-95d6-9d427eeadfac'));
+//$comment = $commentRepository->get(new UUID('d3192232-d5bc-42a6-8027-1eadf79cedc5'));
